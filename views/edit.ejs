@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .header {
+        position: relative;
+        min-height: 50vh;
+        background: conic-gradient(black, grey);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        width: 90%;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        min-height: 8vh;
+        align-items: center;
+      }
+      .nav-items {
+        width: 40%;
+        display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+      }
+      .headline {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .btn {
+        display: inline-block;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-headline {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        margin: 1rem;
+        font-weight: 600;
+      }
+      .section-todo {
+        margin-top: 5rem;
+        text-align: center;
+        margin-bottom: 7rem;
+      }
+      .form-todo {
+        min-height: 5vh;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+      .form-todo input {
+        min-height: 100%;
+      }
+      .form-todo input[type="text"] {
+        width: 77%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+      .form-todo input[type="submit"] {
+        width: 20%;
+        background: rgb(0, 17, 0);
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+
+    <title>My Website</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <h1 class="logo">Website</h1>
+        <ul class="nav-items">
+          <li class="nav-item"><a href="#home">Home</a></li>
+          <li class="nav-item"><a href="">Todo</a></li>
+          <li class="nav-item"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+      <div class="headline">
+        <h2 id="main-heading">Changing your tasks</h2>
+      </div>
+    </header>
+    <section class="section-todo container">
+      <h2>Change of Plans?</h2>
+
+      <!-- Todo App -->
+      <% todos.forEach((todo)=>{ %>
+      <form class="form-todo" action="/update/<%= todo.id %>" method="POST">
+        <input
+          type="text"
+          name="name"
+          class="input"
+          placeholder="Add Todo"
+          value="<%= todo.name %>"
+        />
+        <input type="submit" name="update" value="Update" class="btn" />
+      </form>
+      <% }) %>
+    </section>
+  </body>
+</html>

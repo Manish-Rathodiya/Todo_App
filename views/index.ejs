@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>My Website</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <h1 class="logo">CRUD App</h1>
+        <ul class="nav-items">
+          <li class="nav-item"><a href="#home">Home</a></li>
+          <li class="nav-item"><a href="">Todo</a></li>
+          <li class="nav-item"><a href="">Sign Up</a></li>
+        </ul>
+      </nav>
+      <div class="headline">
+        <h2 id="main-heading">Manage your tasks</h2>
+        <button class="btn btn-headline" id="btn">Learn More</button>
+      </div>
+    </header>
+    <section class="section-todo container">
+      <h2>Your plan for today?</h2>
+
+      <!-- Todo App -->
+      <form class="form-todo" action="" method="POST">
+        <input type="text" name="name" class="input" placeholder="Add Todo" />
+        <input type="submit" name="submit" value="Add Todo" class="btn" />
+      </form>
+
+      <% todos.forEach((todo)=>{ %>
+      <ul class="todo-list">
+        <li class="list">
+          <span class="text"><%= todo.name %></span>
+          <div class="todo-buttons">
+            <button id="done" class="todo-btn edit">
+              <a style="color: black" href="/edit/<%= todo.id %>">Edit</a>
+            </button>
+            <button class="todo-btn remove">
+              <a style="color: black" href="/remove/<%= todo.id %>"> Remove</a>
+            </button>
+          </div>
+        </li>
+      </ul>
+      <% }) %>
+    </section>
+
+    <!-- Sign-up form section  -->
+    <section class="section-signup">
+      <h2>Sign Up</h2>
+      <form class="signup-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div class="form-group">
+          <label for="confirmpassword">Confirm Password</label>
+          <input type="password" name="confirmpassword" id="confirmpassword" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" name="phone" id="phone" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="about">About Yourself</label>
+          <textarea name="about" id="about" cols="30" rows="10"></textarea>
+          <button type="submit" class="btn signup-btn" onclick="notice()">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+  </body>
+  <script>
+    function notice() {
+      alert("This feature is not available yet");
+    }
+  </script>
+</html>
